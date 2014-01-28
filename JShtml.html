@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Java Script Lab</title>
+    <link rel="stylesheet" type="text/css" href="JScss.css" media="screen"/>
+    <script src="JSLab.js"></script>
+    <script>
+        function changeBackground(newColor) {
+
+            if(newColor == document.body.style.backgroundColor){
+                document.body.style.backgroundColor = "blue";
+            } else {
+                document.body.style.backgroundColor = newColor;
+            }
+        }
+
+        function eraseText() {
+            document.getElementById("textArea").value = "";
+        }
+
+        function displayCharacterCount(){
+            var count = "<p>"  + "here" + "</p>";
+            document.getElementById("character_count").innerHTML = count;
+        }
+    </script>
+</head>
+
+<body>
+<textarea id="textArea" rows="10" cols="30">
+The cat was playing in the garden.
+</textarea>
+<form action="">
+    <input type="button" onclick="changeBackground('green')" value="Change Background">
+    <input type="button" onclick="eraseText()" value="Clear Text">
+    </br>
+    <input type="button" onclick="displayCharacterCount()" value="Show Character Count">
+</form>
+
+<div id="character_count" >
+
+
+    <div/>
+</body>
+</html>
