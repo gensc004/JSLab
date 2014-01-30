@@ -8,24 +8,82 @@
 <head>
     <title>Java Script Lab</title>
     <link rel="stylesheet" type="text/css" href="JScss.css" media="screen"/>
+    <script>
+        var undo;
+        var redo;
+        function getCharacterCount() {
+            document.getElementById("character_count").innerHTML = displayCharacterCount(document.getElementById("textArea").value);
+        }
+        function changeColorTextArea(){
+            document.getElementById("textArea").style.backgroundColor = document.getElementById("colorInput").value;
 
+        }
+        function changeColorText(){
+            document.getElementById("textArea").style.color = document.getElementById("textColorInput").value;
+
+        }
+        function changeTextSize(){
+            document.getElementById("textArea").style.fontSize = document.getElementById("textSizeInput").value;
+
+        }
+        function changeBackground(newColor) {
+
+            if(newColor == document.body.style.backgroundColor){
+                document.body.style.backgroundColor = "blue";
+            } else {
+                document.body.style.backgroundColor = newColor;
+            }
+        }
+        <!-- runs save which returns a get function for the current save in prepartion for redo -->
+        function startSave() {
+            undo = save(document.getElementById("textArea").value);
+        }
+        <!-- sets the value of textArea to the last save and prepares for redo -->
+        function undoText() {
+            redo = save(document.getElementById("textArea").value);
+            document.getElementById("textArea").value = undo(document.getElementById("textArea").value)
+        }
+        function redoText() {
+            document.getElementById("textArea").value = redo(document.getElementById("textArea").value);
+        }
+
+    </script>
 </head>
 
 <body>
 
+
 <textarea id="textArea" rows="10" cols="30">
 The cat was playing in the garden.
 </textarea>
+
 <form action="">
     <input type="button" onclick="changeBackground('green')" value="Change Background">
     <input type="button" onclick="eraseText()" value="Clear Text">
     <br>
-    <input type="button" onclick="displayCharacterCount()" value="Show Character Count">
+    <input type="button" onclick="getCharacterCount()" value="Show Character Count">
 </form>
 
 <div id="character_count" >
 
 
 </div>
+
+<form>
+    <input type="button" onclick="changeColorTextArea()" value="Change Text Area Color">
+    <input id="colorInput" type="text"  value="white">
+    <br>
+    <input type="button" onclick="changeColorText()" value="Change Text Color">
+    <input id="textColorInput" type="text"  value="black">
+    <br>
+    <input type="button" onclick="changeTextSize()" value="Change Text Size">
+    <input id="textSizeInput" type="text"  value="12px">
+    <br>
+    <input type="button" onclick="startSave()" value="Save">
+    <input type="button" onclick="undoText()" value="Undo">
+    <input type="button" onclick="redoText()" value="Redo">
+</form>
+
+
 </body>
 </html>
