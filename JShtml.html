@@ -9,8 +9,7 @@
     <title>Java Script Lab</title>
     <link rel="stylesheet" type="text/css" href="JScss.css" media="screen"/>
     <script>
-        var undo;
-        var redo;
+
         function getCharacterCount() {
             document.getElementById("character_count").innerHTML = displayCharacterCount(document.getElementById("textArea").value);
         }
@@ -36,18 +35,20 @@
         }
         <!-- runs save which returns a get function for the current save in prepartion for redo -->
         function startSave() {
-            undo = save(document.getElementById("textArea").value);
+            beginSave(document.getElementById("textArea").value);
         }
         <!-- sets the value of textArea to the last save and prepares for redo -->
         function undoText() {
-            redo = save(document.getElementById("textArea").value);
-            document.getElementById("textArea").value = undo(document.getElementById("textArea").value)
-        }
+
+            document.getElementById("textArea").value = undo(document.getElementById("textArea").value);
+
+            }
         function redoText() {
             document.getElementById("textArea").value = redo(document.getElementById("textArea").value);
+
         }
-        function test() {
-            document.getElementById("testZone").innerHTML = document.getElementById("textArea").value;
+        function test(text) {
+            document.getElementById("testZone").innerHTML = text;
         }
 
     </script>
