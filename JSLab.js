@@ -11,47 +11,51 @@ function displayCharacterCount(text){
     var count = "<p>" +"Count: "  + text.length + "</p>";
     return count;
 }
+
+var saveCounter = 0;
+var currentSave;
+var currentSave1;
+var currentSave2;
+var currentSave3;
+var currentSave4;
+
 function save(text) {
-    var count = 0;
-    var currentSave;
-    var currentSave1;
-    var currentSave2;
-    var currentSave3;
-    var currentSave4;
-    if (count == 0) {
+
+
+    if (saveCounter == 0) {
         currentSave = text;
-        count++;
-    } else if (count == 1) {
+        saveCounter++;
+    } else if (saveCounter == 1) {
         currentSave1 = text;
-        count++;
-    } else if (count == 2) {
+        saveCounter++;
+    } else if (saveCounter == 2) {
         currentSave2 = text;
-        count++;
-    } else if (count == 3) {
+        saveCounter++;
+    } else if (saveCounter == 3) {
         currentSave3 = text;
-        count++;
-    } else if (count == 4) {
+        saveCounter++;
+    } else if (saveCounter == 4) {
         currentSave4 = text;
-        count++;
+        saveCounter++;
     }
 
     return function undo(newText) {
-        var save = "hello";
-        if (count < 1) {
+        //var save = "hello";
+        if (saveCounter == 1) {
             save = currentSave;
-            count--;
-        } else if (count == 2) {
+            saveCounter--;
+        } else if (saveCounter == 2) {
             save = currentSave1;
-            count--;
-        } else if (count == 3) {
+            saveCounter--;
+        } else if (saveCounter == 3) {
             save = currentSave2;
-            count--;
-        } else if (count == 4) {
+            saveCounter--;
+        } else if (saveCounter == 4) {
             save = currentSave3;
-            count--;
-        } else if (count == 5) {
+            saveCounter--;
+        } else if (saveCounter == 5) {
             save = currentSave4;
-            count--;
+            saveCounter--;
         }
 
         return save;
