@@ -37,7 +37,7 @@ function save(text) {
 
     return function undo(newText) {
         var save = "hello";
-        if (count < 1) {
+        if (count <= 1) {
             save = currentSave;
             count--;
         } else if (count == 2) {
