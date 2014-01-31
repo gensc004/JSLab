@@ -46,6 +46,9 @@
         function redoText() {
             document.getElementById("textArea").value = redo(document.getElementById("textArea").value);
         }
+        function test() {
+            document.getElementById("testZone").innerHTML = document.getElementById("textArea").value;
+        }
 
     </script>
 </head>
@@ -82,7 +85,16 @@ The cat was playing in the garden.
     <input type="button" onclick="startSave()" value="Save">
     <input type="button" onclick="undoText()" value="Undo">
     <input type="button" onclick="redoText()" value="Redo">
+    <br>
+    <input type="button" onclick="test()" value="Test Button">
+
 </form>
+
+<div id="testZone" >
+
+
+</div>
+
 
 
 </body>
