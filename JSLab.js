@@ -16,6 +16,8 @@ var redoArray = new Array();
 var undoCount = 0;
 var redoCount = 0;
 return  {
+    //these following functions are for testing purposes only.
+
  beginSave: function beginSave(text) {
     undoArray[undoCount] = this.save(text);
     undoCount++;
@@ -65,9 +67,6 @@ function highlightSearch(text, toFind) {
 
 
 module.exports.displayCharacterCount = displayCharacterCount;
-module.exports.beginSave = beginSave;
-module.exports.save = save;
-module.exports.undo = undo;
-module.exports.redo = redo;
+module.exports.saveSetup = saveSetup;
 module.exports.highlightSearch = highlightSearch;
 
