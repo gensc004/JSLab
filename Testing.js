@@ -34,9 +34,17 @@ describe('Save/Undo/Redo Testing', function(){
     })
     describe('save test 3', function(){
         it('Tests undo button, text should be removed after undo is called', function(){
-
             assert.equal(null,saveObject.undo('test'));
-            assert.equal();
         })
     })
+});
+
+describe('Highlight Search', function(){
+    describe('test 1', function(){
+        it('Tests multiple highlighting of search through text', function(){
+            assert.equal(highlightSearch(" a b a b a", "a"), "<p><em>a</em> b <em>a</em> b <em>a</em></p>");
+        })
+    });
+
+
 });
